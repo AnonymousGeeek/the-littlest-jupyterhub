@@ -193,10 +193,11 @@ def ensure_user_environment(user_requirements_txt_file):
         installer_url = "https://github.com/conda-forge/miniforge/releases/download/{v}/Mambaforge-{v}-Linux-{arch}.sh".format(
             v=mambaforge_new_version, arch=os.uname().machine
         )
-        with conda.download_miniconda_installer(
-            installer_url, installer_sha256
-        ) as installer_path:
-            conda.install_miniconda(installer_path, USER_ENV_PREFIX)
+#         with conda.download_miniconda_installer(
+#             installer_url, installer_sha256
+#         ) as installer_path:
+#             conda.install_miniconda(installer_path, USER_ENV_PREFIX)
+        conda.install_miniconda("/root/Mambaforge-4.10.3-7-Linux-x86_64.sh", USER_ENV_PREFIX)
         conda_version = "4.10.3"
 
     conda.ensure_conda_packages(
